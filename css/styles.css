@@ -290,3 +290,903 @@ body {
         display: none; /* Mobile menu logic would go here */
     }
 }
+/* =========================================
+   ESTILOS PÁGINA: ACERCA DE NOSOTROS
+   ========================================= */
+
+/* Espaciado general de la página */
+.about-page {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Título Principal */
+.about-intro h1 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Párrafos de descripción */
+.about-description p {
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 15px auto; /* Centrado */
+}
+
+/* Subtítulo Azul */
+.about-subtitle {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+/* --- Contenedor de las Tarjetas --- */
+.info-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding-bottom: 60px;
+}
+
+/* Estilo Base de Tarjeta */
+.info-card {
+    border-radius: 20px; /* Bordes muy redondeados como en Figma */
+    padding: 40px 30px;
+    text-align: left; /* Texto alineado a la izquierda dentro de la tarjeta */
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #000;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-card p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.card-intro {
+    font-weight: 500;
+    color: #222 !important;
+}
+
+/* --- Colores Específicos (Pasteles) --- */
+
+/* Verde Pastel (Pacientes) */
+.card-green {
+    background-color: #e3f6f5; /* Tono menta suave */
+    border: 1px solid #d0f0ef;
+}
+
+/* Azul Pastel (Médicos) */
+.card-blue {
+    background-color: #eaf6ff; /* Azul cielo muy claro */
+    border: 1px solid #dbeafe;
+}
+
+/* Gris Azulado (Clínicas) */
+.card-gray {
+    background-color: #e9ecef; /* Gris suave */
+    border: 1px solid #dee2e6;
+}
+
+/* --- Iconos (Simulados con CSS o Emojis) --- */
+/* Si usas FontAwesome, reemplaza esto con las clases reales */
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.icon-patient::before {
+    content: '🏥'; /* Icono Hospital/Cama */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.icon-doctor::before {
+    content: '👨‍⚕️'; /* Icono Doctor */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.icon-clinic::before {
+    content: '🏢'; /* Icono Edificio */
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Estilo para enlace activo en el menú */
+.active-link {
+    color: var(--primary-blue) !important;
+    font-weight: 700 !important;
+}
+
+/* =========================================
+   ESTILOS PÁGINA: OFRECER SERVICIO (PROVIDER)
+   ========================================= */
+
+.provider-page {
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.provider-intro h1 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.provider-intro p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 50px;
+}
+
+/* El contenedor gris de fondo */
+.selection-container {
+    background-color: #f0f2f5; 
+    border-radius: 30px;
+    padding: 60px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Importante para que baje en celulares */
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.02); 
+}
+
+/* Tarjetas de Selección */
+.selection-card {
+    background-color: #e6f4f1; /* Tono verde menta */
+    border: 1px solid #d0e8e4;
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 350px;
+}
+
+.selection-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    background-color: #ffffff;
+    border-color: var(--primary-blue);
+}
+
+/* Contenedor de la ilustración */
+.illustration {
+    margin-bottom: 20px;
+    height: 200px; /* Altura fija para que las tarjetas se vean parejas */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- REGLA IMPORTANTE PARA TUS IMÁGENES --- */
+/* Esto evita que las fotos del doctor/clínica se deformen */
+.illustration img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+}
+
+/* Tarjeta completa */
+.selection-card {
+    background-color: #e6f4f1;
+    border: 1px solid #d0e8e4;
+    border-radius: 20px;
+    
+    /* Ajuste de Padding: Menos a los lados, pero suficiente arriba y abajo */
+    padding: 30px 20px; 
+    
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    
+    /* Flexbox para ordenar verticalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Esto asegura que si una tarjeta tiene menos texto, sean del mismo tamaño */
+    height: 100%; 
+    min-height: 420px; /* Altura mínima para que quepa todo bien */
+}
+
+/* La Imagen (Ya ajustada anteriormente) */
+.illustration {
+    margin-bottom: 20px;
+    height: 180px; /* Grande, como querías */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.illustration img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Título */
+.selection-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Texto descriptivo */
+.selection-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    /* Importante: Margen abajo para no pegar con el botón */
+    margin-bottom: 25px; 
+}
+
+/* EL BOTÓN (Aquí está el arreglo principal) */
+.btn-select {
+    /* "margin-top: auto" empuja el botón al fondo de la tarjeta */
+    text-decoration: none;
+    display: inline-block;
+    margin-top: auto; 
+    
+    background-color: transparent; /* Fondo transparente (outline) */
+    color: var(--text-dark);      /* Texto oscuro como en tu imagen */
+    border: 1px solid #94a3b8;    /* Borde gris sutil */
+    
+    padding: 10px 24px;
+    border-radius: 6px; /* Bordes ligeramente redondeados (cuadrados suaves) */
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* Para que se parezca más a la imagen (no tan ancho) */
+    width: fit-content; 
+}
+
+/* Efecto Hover en la tarjeta */
+.selection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    background-color: #ffffff;
+    border-color: var(--primary-blue);
+}
+
+/* Efecto Hover específico del botón */
+.selection-card:hover .btn-select {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
+/* =========================================
+   ESTILOS PÁGINA: REGISTRO PROFESIONAL
+   ========================================= */
+
+.registration-page {
+    padding: 40px 5%;
+    max-width: 1400px; /* Más ancho para que quepa todo */
+    margin: 0 auto;
+}
+
+.registration-header {
+    margin-bottom: 30px;
+}
+
+.registration-header h1 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.registration-header p {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* --- Contenedor Dividido (Izquierda / Derecha) --- */
+.split-container {
+    display: flex;
+    gap: 40px;
+    align-items: stretch; /* Estira ambas columnas al mismo alto */
+}
+
+/* Lado Izquierdo: Formulario */
+.form-side {
+    flex: 1; /* Ocupa el 50% aprox */
+    background-color: #e6e6e6; /* Fondo grisáceo de tu imagen */
+    padding: 40px;
+    border-radius: 30px; /* Bordes muy redondeados */
+}
+
+/* Lado Derecho: Preview */
+.preview-side {
+    flex: 1; /* Ocupa el otro 50% */
+    background-color: #f8fafc; /* Fondo blanco/gris muy claro */
+    min-height: 600px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #cbd5e1; /* Borde punteado temporal */
+}
+
+/* Estilos del Formulario */
+.professional-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+/* Inputs Estilo Figma (Blancos y redondeados) */
+.input-field {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background-color: var(--white);
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.input-field::placeholder {
+    color: #94a3b8;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+/* Fila de Teléfono */
+.phone-row {
+    display: flex;
+}
+.prefix {
+    width: 80px; /* Pequeño para el +52 */
+    text-align: center;
+    background-color: #f1f5f9;
+}
+.phone-input {
+    flex-grow: 1;
+}
+
+/* Inputs de Archivo (INE) */
+.form-group-upload {
+    background-color: var(--white);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-group-upload label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+.input-file {
+    font-size: 0.8rem;
+}
+
+/* --- LOGICA DEL POP-UP (TOOLTIP) --- */
+.cedula-row {
+    position: relative; /* Para posicionar el popup respecto a esta fila */
+    align-items: center;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.info-icon {
+    background-color: rgba(255,255,255,0.5);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-weight: bold;
+    border: 1px solid #cbd5e1;
+    transition: all 0.2s;
+}
+
+.info-icon:hover {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+/* El Pop-up Escondido */
+.tooltip-popup {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: -20px; /* Ajustado para que aparezca bien */
+    left: 40px; /* Aparece a la derecha del icono */
+    width: 320px;
+    background-color: #eaf6f6; /* Fondo verdoso claro */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    z-index: 100;
+    border: 1px solid #d0e8e4;
+    transition: opacity 0.3s, transform 0.3s;
+    
+    /* Texto */
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+/* Mostrar Pop-up al pasar mouse (Hover) */
+.tooltip-container:hover .tooltip-popup {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: var(--primary-dark);
+}
+
+.shield-icon {
+    font-size: 1.2rem;
+}
+
+/* Botón Final */
+.btn-register-pro {
+    background-color: var(--white);
+    color: var(--text-dark);
+    border: 1px solid #cbd5e1;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.btn-register-pro:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .split-container {
+        flex-direction: column;
+    }
+    .preview-side {
+        display: none; /* En móvil ocultamos el preview */
+    }
+    .form-row {
+        flex-direction: column;
+    }
+    .tooltip-popup {
+        left: auto;
+        right: 0;
+        width: 250px;
+        top: 35px;
+    }
+}
+
+/* =========================================
+   ESTILOS DEL MOCKUP DINÁMICO
+   ========================================= */
+
+/* Actualización del contenedor derecho */
+.preview-side {
+    flex: 1;
+    background-color: #f8fafc;
+    border-radius: 30px;
+    display: flex;
+    align-items: flex-start; /* Alineado arriba */
+    justify-content: center;
+    padding: 40px; 
+    border: none; 
+    min-height: 600px;
+}
+
+/* La tarjeta del Mockup */
+.mockup-card {
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra suave */
+    padding: 25px;
+    width: 100%;
+    max-width: 400px; 
+    border: 1px solid #e2e8f0;
+}
+
+.mockup-header {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Foto de perfil gris */
+.mockup-photo {
+    width: 70px;
+    height: 70px;
+    background-color: #f1f5f9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; 
+}
+
+.mockup-info h3 {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.mockup-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+/* Estrellas */
+.mockup-stars {
+    color: #fbbf24; /* Amarillo */
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* Badge de cédula */
+.mockup-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    background-color: #e2e8f0;
+    color: var(--text-light);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Líneas de relleno */
+.mockup-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skeleton-line {
+    height: 12px;
+    background-color: #f1f5f9;
+    border-radius: 6px;
+}
+/* =========================================
+   ESTILOS PÁGINA: LOGIN Y REGISTRO
+   ========================================= */
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: 80vh; /* Para que quede centrado verticalmente */
+}
+
+.login-container {
+    background-color: var(--white);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 2.2rem;
+    color: var(--primary-blue); 
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.login-subtitle {
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* --- Toggle Switch (Pestañas) --- */
+.auth-toggle {
+    background-color: #f1f5f9; /* Gris muy claro */
+    padding: 5px;
+    border-radius: 12px;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.toggle-option {
+    flex: 1; /* Ocupan el mismo ancho */
+    border: none;
+    background: transparent;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.toggle-option.active {
+    background-color: var(--white);
+    color: #000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* --- Estilos del Formulario --- */
+.login-form {
+    text-align: left;
+    transition: opacity 0.3s ease;
+}
+
+/* Clase para ocultar formularios (Controlado por JS) */
+.hidden {
+    display: none;
+}
+
+/* Inputs con Icono a la derecha */
+.input-group-icon {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group-icon input {
+    width: 100%;
+    /* Padding extra a la derecha (45px) para que no se encime con el icono */
+    padding: 14px 45px 14px 15px; 
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    color: var(--text-dark);
+}
+
+.input-group-icon input:focus {
+    border-color: var(--primary-blue);
+}
+
+/* El icono posicionado absolutamente a la derecha */
+.input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8; /* Gris suave */
+    font-size: 1.1rem;
+    /* pointer-events: none hace que el click pase a través del icono al input */
+    pointer-events: none; 
+}
+
+/* Ojo de contraseña (si quisieras hacerlo clickeable, quita pointer-events) */
+.eye-toggle {
+    cursor: pointer;
+    pointer-events: auto; 
+}
+
+/* Acciones (Recordarme / Olvidé contraseña) */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Términos y Condiciones (Registro) */
+.terms-checkbox {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.terms-checkbox a {
+    color: var(--text-light);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.terms-note {
+    font-size: 0.85rem;
+    margin-top: 5px;
+    margin-left: 20px; /* Sangría para alinear con texto del checkbox */
+}
+
+/* Botón Principal */
+.btn-submit {
+    width: 100%;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 30px; /* Botón píldora */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-dark);
+}
+
+/* --- Divisor "O inicia sesión con" --- */
+.divider {
+    margin: 30px 0;
+    position: relative;
+    text-align: center;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e2e8f0;
+    z-index: 1;
+}
+
+.divider span {
+    background-color: var(--white); /* Importante para tapar la línea */
+    padding: 0 15px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Botones Redes Sociales --- */
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-btn {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #e2e8f0;
+    background-color: var(--white);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.social-btn img {
+    width: 24px;
+    height: 24px;
+}
+/* =========================================
+   BOTÓN FLOTANTE WHATSAPP
+   ========================================= */
+.btn-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366; /* Color oficial WhatsApp */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000; /* Siempre visible encima de todo */
+    transition: transform 0.3s ease;
+    text-decoration: none; 
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.1); /* Efecto zoom al pasar el mouse */
+    background-color: #1ebc57;
+}
+
+/* Ajuste Responsivo para celular */
+@media (max-width: 768px) {
+    .btn-whatsapp {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .btn-whatsapp svg {
+        width: 28px;
+        height: 28px;
+    }
+}

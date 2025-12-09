@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Profesional - Viamed</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo2.png" alt="Viamed Logo">
+            </a>
+        </div>
+        <nav class="main-nav">
+            <a href="about_us.html">Acerca de nosotros</a>
+            <a href="provider.html">Ofrecer servicio</a>
+            <a href="login.html?mode=register">Regístrate</a>
+            <a href="login.html" class="header-cta">Inicia sesión</a>
+        </nav>
+    </header>
+
+    <main class="registration-page">
+        
+        <div class="registration-header">
+            <h1>Crea tu perfil profesional en segundos</h1>
+            <p>Haz que los pacientes te encuentren. Crea tu perfil en Viamed.</p>
+        </div>
+
+        <div class="split-container">
+            
+            <div class="form-side">
+                <form class="professional-form">
+                    
+                    <div class="form-row">
+                        <input type="text" id="input-name" placeholder="Nombre(s)" class="input-field">
+                        <input type="text" id="input-surname" placeholder="Apellidos" class="input-field">
+                    </div>
+
+                    <div class="form-row">
+                        <input type="text" id="input-specialty" placeholder="Especialidad" class="input-field">
+                        <input type="text" id="input-location" placeholder="Ciudad / Dirección" class="input-field">
+                    </div>
+
+                    <div class="form-row cedula-row">
+                        <input type="text" placeholder="Cédula profesional" class="input-field">
+                        <div class="tooltip-container">
+                            <span class="info-icon">?</span>
+                            <div class="tooltip-popup">
+                                <div class="popup-header">
+                                    <span class="shield-icon">🛡️</span>
+                                    <strong>¿Por qué pedimos esto?</strong>
+                                </div>
+                                <p>Para asegurar la integridad de nuestra comunidad, en Viamed <strong>validamos rigurosamente</strong> cada perfil. Exigimos <strong>cédula profesional</strong> para garantizar la calidad médica a los pacientes y <strong>documentación oficial</strong> para blindar tu identidad como especialista.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <input type="text" placeholder="CURP" class="input-field full-width">
+                    </div>
+
+                    <div class="form-row phone-row">
+                        <input type="text" value="+52" disabled class="input-field prefix">
+                        <input type="tel" placeholder="Número de teléfono" class="input-field phone-input">
+                    </div>
+
+                    <div class="form-group-upload">
+                        <label>Foto de INE (Frente)</label>
+                        <input type="file" class="input-file">
+                    </div>
+                    <div class="form-group-upload">
+                        <label>Foto de INE (Reverso)</label>
+                        <input type="file" class="input-file">
+                    </div>
+
+                    <input type="email" placeholder="Correo electrónico" class="input-field full-width margin-top">
+                    <input type="password" placeholder="Contraseña" class="input-field full-width margin-top">
+
+                    <button type="submit" class="btn-register-pro">Crear perfil</button>
+
+                </form>
+            </div>
+
+            <div class="preview-side">
+                
+                <div class="mockup-card">
+                    <div class="mockup-header">
+                        <div class="mockup-photo">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#cbd5e1" width="40px" height="40px"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        </div>
+                        
+                        <div class="mockup-info">
+                            <h3 id="mockup-fullname">Tu nombre</h3>
+                            <p class="mockup-subtitle">
+                                <span id="mockup-specialty-display">Tu especialidad</span> • 
+                                <span id="mockup-location-display">Tu ciudad</span>
+                            </p>
+                            
+                            <div class="mockup-stars">★★★★★</div>
+                            <span class="mockup-badge">Cédula profesional sin verificar</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mockup-skeleton">
+                        <div class="skeleton-line" style="width: 80%;"></div>
+                        <div class="skeleton-line" style="width: 90%;"></div>
+                        <div class="skeleton-line" style="width: 60%;"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        // 1. Detectamos los inputs
+        const inputName = document.getElementById('input-name');
+        const inputSurname = document.getElementById('input-surname');
+        const inputSpecialty = document.getElementById('input-specialty');
+        const inputLocation = document.getElementById('input-location');
+
+        // 2. Detectamos dónde escribir en el Mockup
+        const mockupFullName = document.getElementById('mockup-fullname');
+        const mockupSpecialtyDisplay = document.getElementById('mockup-specialty-display');
+        const mockupLocationDisplay = document.getElementById('mockup-location-display');
+
+        // 3. Función para actualizar Nombre + Apellido
+        function updateFullName() {
+            const name = inputName.value;
+            const surname = inputSurname.value;
+            if (!name && !surname) {
+                mockupFullName.textContent = 'Tu nombre';
+            } else {
+                mockupFullName.textContent = `${name} ${surname}`;
+            }
+        }
+
+        // 4. Escuchamos cuando escribes
+        inputName.addEventListener('input', updateFullName);
+        inputSurname.addEventListener('input', updateFullName);
+
+        inputSpecialty.addEventListener('input', function() {
+            mockupSpecialtyDisplay.textContent = this.value || 'Tu especialidad';
+        });
+
+        inputLocation.addEventListener('input', function() {
+            mockupLocationDisplay.textContent = this.value || 'Tu ciudad';
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso - Viamed</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo2.png" alt="Viamed Logo">
+            </a>
+        </div>
+        <nav class="main-nav">
+            <a href="about_us.html">Acerca de nosotros</a>
+            <a href="provider.html">Ofrecer servicio</a>
+            
+            <a href="#" id="header-register" onclick="switchMode('register'); return false;">Regístrate</a>
+            
+            <button id="header-login" class="header-cta active-btn" onclick="switchMode('login')">
+                Inicia sesión
+            </button>
+        </nav>
+    </header>
+
+    <main class="login-page">
+        <div class="login-container">
+            
+            <h1 class="login-title" id="page-title">Empieza ahora</h1>
+            <p class="login-subtitle" id="page-subtitle">Inicia sesión para explorar nuestra app</p>
+
+            <div class="auth-toggle">
+                <button class="toggle-option active" id="tab-login" onclick="switchMode('login')">Iniciar sesión</button>
+                <button class="toggle-option" id="tab-register" onclick="switchMode('register')">Registrarse</button>
+            </div>
+
+            <form class="login-form" id="form-login">
+                
+                <div class="input-group-icon right">
+                    <input type="email" placeholder="Correo electrónico">
+                    <span class="input-icon">✉️</span>
+                </div>
+
+                <div class="input-group-icon">
+                    <input type="password" placeholder="Contraseña">
+                </div>
+
+                <div class="form-actions">
+                    <label class="remember-me">
+                        <input type="checkbox"> Recuérdame
+                    </label>
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="btn-submit">Iniciar sesión</button>
+
+                <div class="divider">
+                    <span>O inicia sesión con</span>
+                </div>
+            </form>
+
+            <form class="login-form hidden" id="form-register">
+                
+                <div class="input-group-icon right">
+                    <input type="email" placeholder="Correo electrónico">
+                    <span class="input-icon">✉️</span>
+                </div>
+
+                <div class="input-group-icon">
+                    <input type="password" placeholder="Contraseña">
+                </div>
+
+                <div class="input-group-icon right">
+                    <input type="password" placeholder="Confirma tu contraseña">
+                </div>
+
+                <div class="input-group-icon right">
+                    <input type="tel" placeholder="Ingresa tu numero de telefono">
+                    <span class="input-icon">📞</span>
+                </div>
+
+                <div class="terms-checkbox">
+                    <label>
+                        <input type="checkbox"> Al crear tu cuenta aceptas los <a href="#">términos y condiciones</a>
+                    </label>
+                    <p class="terms-note">Lee nuestra <a href="#">Política de privacidad</a></p>
+                </div>
+
+                <button type="submit" class="btn-submit">Crea tu cuenta</button>
+
+                <div class="divider">
+                    <span>O Regístrate con</span>
+                </div>
+            </form>
+
+            <div class="social-login">
+                <button class="social-btn facebook">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                </button>
+                <button class="social-btn apple">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Esta función se ejecuta apenas carga la página
+        window.onload = function() {
+            // Buscamos si en la URL dice "?mode=register"
+            const urlParams = new URLSearchParams(window.location.search);
+            const mode = urlParams.get('mode');
+            
+            if (mode === 'register') {
+                switchMode('register');
+            }
+        };
+
+        function switchMode(mode) {
+            // 1. Elementos del Formulario
+            const formLogin = document.getElementById('form-login');
+            const formRegister = document.getElementById('form-register');
+            const tabLogin = document.getElementById('tab-login');
+            const tabRegister = document.getElementById('tab-register');
+            const title = document.getElementById('page-title');
+            const subtitle = document.getElementById('page-subtitle');
+            
+            // 2. Elementos del Header
+            const headerBtn = document.getElementById('header-login');
+            const headerLink = document.getElementById('header-register');
+
+            if (mode === 'login') {
+                // MOSTRAR LOGIN
+                formLogin.classList.remove('hidden');
+                formRegister.classList.add('hidden');
+                
+                // Pestañas del centro
+                tabLogin.classList.add('active');
+                tabRegister.classList.remove('active');
+
+                // Textos
+                title.textContent = "Empieza ahora";
+                subtitle.textContent = "Inicia sesión para explorar nuestra app";
+
+                // HEADER: Botón activo, link normal
+                headerBtn.classList.add('active-btn'); 
+                headerLink.classList.remove('active-link'); 
+
+            } else {
+                // MOSTRAR REGISTRO
+                formLogin.classList.add('hidden');
+                formRegister.classList.remove('hidden');
+
+                // Pestañas del centro
+                tabLogin.classList.remove('active');
+                tabRegister.classList.add('active');
+
+                // Textos
+                title.textContent = "Regístrate";
+                subtitle.textContent = "Crea tu cuenta para cuidar de tu salud.";
+
+                // HEADER: Botón inactivo, link activo (azul)
+                headerBtn.classList.remove('active-btn');
+                headerLink.classList.add('active-link');
+            }
+        }
+    </script>
+    
+    <a href="https://wa.me/526181669122" class="btn-whatsapp" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="#ffffff">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
+
+</body>
+</html>
+</body>
+    <a href="https://wa.me/526181669122" class="btn-whatsapp" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="#ffffff">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
+
+</body>
+</html>
+</html>
